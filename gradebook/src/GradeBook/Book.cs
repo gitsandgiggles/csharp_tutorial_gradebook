@@ -7,14 +7,14 @@ namespace GradeBook
     {
 
         private List<double> grades;
-        private string name;   
+        public string Name;   
         private Statistics stats;
         bool hasStats;
 
         public Book(string name)
         {
             grades = new List<double>();
-            this.name = name;
+            Name = name;
             stats = new Statistics();
             stats.Average = 0.0;
             stats.High = double.MinValue;

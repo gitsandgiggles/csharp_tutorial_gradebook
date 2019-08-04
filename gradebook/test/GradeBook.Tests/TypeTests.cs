@@ -7,10 +7,19 @@ namespace GradeBook.Tests
     {
 
         [Fact]
-        public void Test1()
+        public void ValueTypesAlsoPassByValue()
         {
             var x = GetInt();
-            Assert.Equal(3,x);
+           // Assert.Equal(3,x);
+
+            SetInt(ref x);
+            Assert.Equal(42,x);
+        }
+
+        private void SetInt(ref Int32 x)
+        {
+            // int is an alias for the C# struct Int32 , 32 bit sigend integer
+            x = 42;
         }
 
         private int GetInt()
@@ -57,7 +66,22 @@ namespace GradeBook.Tests
             book = new Book(newName);
         }
         
-        
+        [Fact]
+        public void StringsAreClassesButBehaveLikeTypeValues()
+        {
+
+            string name = "Liz";
+            var upper = MakeUpperCase(name);
+            Assert.Equal("Liz", name);
+            Assert.Equal("LIZ", upper);
+
+        }
+
+        private string MakeUpperCase(string parameter)
+        {
+            return parameter.ToUpper();
+        }
+
         [Fact]
         public void CanSetNameFromReference()
         {

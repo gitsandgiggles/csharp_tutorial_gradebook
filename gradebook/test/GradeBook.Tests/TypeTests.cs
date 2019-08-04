@@ -5,6 +5,43 @@ namespace GradeBook.Tests
 {
     public class TypeTests
     {
+
+        [Fact]
+        public void Test1()
+        {
+            var x = GetInt();
+            Assert.Equal(3,x);
+        }
+
+        private int GetInt()
+        {
+            return 3;
+        }
+
+        [Fact]
+        public void CSharpCanPassByRef()
+        {
+            var book1 = GetBook("Book 1");
+            GetBookSetName(out book1, "New Name");
+
+            Assert.Equal("New Name",book1.Name);
+
+        }
+
+        void GetBookSetName(out Book book, string newName)
+        {
+            // out is like ref except it assumes parameter is uninitialised 
+            // and will be initialised in the method. Out is for Output - it's expected to be
+            // an ouput of the method.
+            book = new Book(newName);
+        }
+           
+        
+        
+        
+        
+        
+        
         [Fact]
         public void CSharpIsPassByValue ()
         {

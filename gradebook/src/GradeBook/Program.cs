@@ -8,6 +8,7 @@ namespace GradeBook
         static void Main(string[] args)
         {
             
+            // test 2 for VSC and github
             var book = new Book("Liz's grade book");
             book.AddGrade(89.1);
             book.AddGrade(90.5);

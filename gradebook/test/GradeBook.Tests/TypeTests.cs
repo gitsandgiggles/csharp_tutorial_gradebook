@@ -55,7 +55,7 @@ namespace GradeBook.Tests
         public void CSharpIsPassByValue ()
         {
             var book1 = GetBook("Book 1");
-            GetBookSetName(book1, "New Name");
+            GetBookSetName(book1, "New Name");  //book1 value (obj ref) was not changed by the function call
 
             Assert.Equal("Book 1",book1.Name);
 

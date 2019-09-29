@@ -3,6 +3,7 @@ using Xunit;
 
 namespace GradeBook.Tests
 {
+
     public class TypeTests
     {
 
@@ -10,7 +11,10 @@ namespace GradeBook.Tests
         public void ValueTypesAlsoPassByValue()
         {
             var x = GetInt();
-           // Assert.Equal(3,x);
+            Assert.Equal(3,x);
+
+            SetInt(x);
+            Assert.Equal(3,x);
 
             SetInt(ref x);
             Assert.Equal(42,x);
@@ -21,6 +25,13 @@ namespace GradeBook.Tests
             // int is an alias for the C# struct Int32 , 32 bit sigend integer
             x = 42;
         }
+
+        private void SetInt(Int32 x)
+        {
+            // int is an alias for the C# struct Int32 , 32 bit sigend integer
+            x = 42;
+        }
+
 
         private int GetInt()
         {
